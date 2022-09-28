@@ -6,11 +6,11 @@
  * https://leetcode.cn/problems/linked-list-cycle/description/
  *
  * algorithms
- * Easy (51.47%)
- * Likes:    1554
+ * Easy (51.52%)
+ * Likes:    1628
  * Dislikes: 0
- * Total Accepted:    798.4K
- * Total Submissions: 1.6M
+ * Total Accepted:    852.9K
+ * Total Submissions: 1.7M
  * Testcase Example:  '[3,2,0,-4]\n1'
  *
  * 给你一个链表的头节点 head ，判断链表中是否有环。
@@ -82,15 +82,15 @@
  * @return {boolean}
  */
 var hasCycle = function (head) {
-  let map = new Map();
-  let cur = head;
-  while (cur) {
-    if (map.has(cur)) {
+  if (head === null) return false;
+  let slow = head;
+  let fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) {
       return true;
-    } else {
-      map.set(cur, true);
     }
-    cur = cur.next;
   }
   return false;
 };
