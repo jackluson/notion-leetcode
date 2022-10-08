@@ -95,3 +95,18 @@ var hasCycle = function (head) {
   return false;
 };
 // @lc code=end
+
+function ListNode(val, next = null) {
+  this.val = val;
+  this.next = next;
+}
+
+const nodeVal4 = new ListNode(4);
+const nodeVal0 = new ListNode(0, nodeVal4);
+const nodeVal2 = new ListNode(2, nodeVal0);
+const nodeVal3 = new ListNode(3, nodeVal2);
+
+nodeVal4.next = nodeVal2;
+
+const res = hasCycle(nodeVal3);
+console.log('res:', res);
