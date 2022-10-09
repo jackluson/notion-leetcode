@@ -1,11 +1,3 @@
-'''
-Desc:
-File: /141.环形链表.py
-File Created: Sunday, 9th October 2022 12:14:33 am
-Author: luxuemin2108@gmail.com
------
-Copyright (c) 2022 Camel Lu
-'''
 #
 # @lc app=leetcode.cn id=141 lang=python3
 #
@@ -86,7 +78,7 @@ from typing import Optional
 
 
 class ListNode:
-    def __init__(self, x, next=None):
+    def __init__(self, x, next=Optional['ListNode']):
         self.val = x
         self.next = next
 
