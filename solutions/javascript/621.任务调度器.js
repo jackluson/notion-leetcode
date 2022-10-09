@@ -72,71 +72,24 @@
  * @return {number}
  */
 var leastInterval = function (tasks, n) {
-  let total = 0;
+  // let total = 0;
   let taskMap = new Map();
+  let maxTaskNum = 0;
   for (const task of tasks) {
-    let taskCount = taskMap.get(task) || 0;
-    taskMap.set(task, taskCount + 1);
+    let taskCount = (taskMap.get(task) || 0) + 1;
+    if (taskCount > maxTaskNum) {
+      maxTaskNum = taskCount;
+    }
+    taskMap.set(task, taskCount);
   }
-  let preTaskMap = new Map();
-  while (taskMap.size) {
-    let taskSet = taskMap.keys();
-    let selectTask = null;
-    for (let [task, preInterval] of preTaskMap) {
-      preTaskMap.set(task, preInterval - 1);
-    }
-    total++;
-    for (let task of taskSet) {
-      const isMeet = preTaskMap.has(task) ? preTaskMap.get(task) < 0 : true;
-      if (
-        isMeet &&
-        (selectTask === null || taskMap.get(selectTask) < taskMap.get(task))
-      ) {
-        selectTask = task;
-      }
-    }
-    if (selectTask) {
-      preTaskMap.set(selectTask, n);
-      let taskCount = taskMap.get(selectTask);
-      if (taskCount === 1) {
-        taskMap.delete(selectTask);
-        preTaskMap.delete(selectTask);
-      } else {
-        taskMap.set(selectTask, taskCount - 1);
-      }
+  let sameMaxTaskCount = 0;
+  for (const [_key, value] of taskMap) {
+    if (value === maxTaskNum) {
+      sameMaxTaskCount++;
     }
   }
-  return total;
+  const total = (maxTaskNum - 1) * (n + 1) + sameMaxTaskCount;
+
+  return Math.max(tasks.length, total);
 };
 // @lc code=end
-const tasks = [
-  'A',
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-];
-const res = leastInterval(tasks, 29);
-console.log('🚀 ~ file: 621.任务调度器.js ~ line 123 ~ res', res);
