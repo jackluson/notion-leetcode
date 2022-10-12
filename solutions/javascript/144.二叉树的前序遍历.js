@@ -81,11 +81,12 @@
  * @return {number[]}
  */
 var preorderTraversal = function (root) {
-  if (root === null) return [];
-  return [
-    root.val,
-    ...preorderTraversal(root.left),
-    ...preorderTraversal(root.right),
-  ];
+  return root
+    ? [
+        root.val,
+        ...preorderTraversal(root.left),
+        ...preorderTraversal(root.right),
+      ]
+    : [];
 };
 // @lc code=end
