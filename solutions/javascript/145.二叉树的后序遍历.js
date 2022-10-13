@@ -1,19 +1,19 @@
 /*
- * @lc app=leetcode.cn id=94 lang=javascript
+ * @lc app=leetcode.cn id=145 lang=javascript
  *
- * [94] 二叉树的中序遍历
+ * [145] 二叉树的后序遍历
  *
- * https://leetcode.cn/problems/binary-tree-inorder-traversal/description/
+ * https://leetcode.cn/problems/binary-tree-postorder-traversal/description/
  *
  * algorithms
- * Easy (76.12%)
- * Likes:    1588
+ * Easy (76.11%)
+ * Likes:    933
  * Dislikes: 0
- * Total Accepted:    980.7K
- * Total Submissions: 1.3M
+ * Total Accepted:    526.3K
+ * Total Submissions: 691.4K
  * Testcase Example:  '[1,null,2,3]'
  *
- * 给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。
+ * 给你一棵二叉树的根节点 root ，返回其节点值的 后序遍历 。
  *
  *
  *
@@ -21,7 +21,7 @@
  *
  *
  * 输入：root = [1,null,2,3]
- * 输出：[1,3,2]
+ * 输出：[3,2,1]
  *
  *
  * 示例 2：
@@ -43,13 +43,13 @@
  * 提示：
  *
  *
- * 树中节点数目在范围 [0, 100] 内
+ * 树中节点的数目在范围 [0, 100] 内
  * -100 <= Node.val <= 100
  *
  *
  *
  *
- * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
+ * 进阶：递归算法很简单，你可以通过迭代算法完成吗？
  *
  */
 
@@ -66,20 +66,24 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function (root) {
+var postorderTraversal = function (root) {
   if (root === null) return [];
-  let res = [];
+  const res = [];
   const stack = [];
   let cur = root;
+  let pre = null;
   while (cur || stack.length) {
     if (cur) {
       stack.push(cur);
       cur = cur.left;
     } else {
-      const last = stack.pop();
-      res.push(last.val);
-      if (last.right) {
+      const last = stack[stack.length - 1];
+      if (last.right && last.right !== pre) {
         cur = last.right;
+      } else {
+        pre = last;
+        res.push(last.val);
+        stack.pop();
       }
     }
   }
