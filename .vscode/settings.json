@@ -1,5 +1,21 @@
 {
-  "leetcode.defaultLanguage": "javascript",
-  "leetcode.showCommentDescription": true,
+  "leetcode.defaultLanguage": "python3",
+  "leetcode.endpoint": "leetcode-cn",
+  // "leetcode.defaultLanguage": "python3",
+  "leetcode.showDescription": "Both",
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commentDescription": true,
+  "leetcode.filePath": {
+    "default": {
+      "folder": "solutions/javascript",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    },
+    "python3": {
+      "folder": "solutions/python3",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    }
+  },
   "pomodoroClock.countdown": false,
+  "github.copilot.inlineSuggest.enable": false,
 }
