@@ -1,11 +1,3 @@
-'''
-Desc:
-File: /263.丑数.py
-File Created: Friday, 14th October 2022 12:32:25 am
-Author: luxuemin2108@gmail.com
------
-Copyright (c) 2022 Camel Lu
-'''
 #
 # @lc app=leetcode.cn id=263 lang=python3
 #
