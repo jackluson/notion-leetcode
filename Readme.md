@@ -1,6 +1,7 @@
 # Notion-Leetcode
 
 用Notion辅助刷Leetcode
+
 Notion 模板如下图：
 ![template](screenshots/template.jpg)
 
