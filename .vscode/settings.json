@@ -18,4 +18,7 @@
   },
   "pomodoroClock.countdown": false,
   "github.copilot.inlineSuggest.enable": false,
+  "pomodoroClock.breakTime": 2,
+  "pomodoroClock.longBreakTime": 6,
+  "pomodoroClock.workTime": 15,
 }

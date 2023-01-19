@@ -55,15 +55,12 @@ class Solution(object):
         :rtype: int
         """
         candidate = None
-        count = 0
+        count = 1
         for num in nums:
-            if candidate == num:
-                count = count + 1;
-            elif candidate == None:
-                candidate = num
-                count = 1
+            if num == candidate:
+                count = count + 1
             else:
-                if count == 1:
+                if candidate == None or count == 1:
                     candidate = num
                 else:
                     count = count - 1
