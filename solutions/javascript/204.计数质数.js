@@ -6,11 +6,11 @@
  * https://leetcode.cn/problems/count-primes/description/
  *
  * algorithms
- * Medium (37.55%)
- * Likes:    921
+ * Medium (37.52%)
+ * Likes:    960
  * Dislikes: 0
- * Total Accepted:    213.3K
- * Total Submissions: 568K
+ * Total Accepted:    227.7K
+ * Total Submissions: 608K
  * Testcase Example:  '10'
  *
  * 给定整数 n ，返回 所有小于非负整数 n 的质数的数量 。
@@ -55,17 +55,17 @@
  * @return {number}
  */
 var countPrimes = function (n) {
-  let primes = new Array(n).fill(1);
-  for (let i = 2; i * i < n; i++) {
-    if (primes[i]) {
-      for (let j = 2; j * i < n; j++) {
-        primes[j * i] = 0;
+  const primes = new Array(n).fill(1);
+  for (let i = 2; i < n; i++) {
+    for (let x = 2; i * x < n; x++) {
+      if (primes[i * x]) {
+        primes[i * x] = 0;
       }
     }
   }
   let count = 0;
   for (let i = 2; i < n; i++) {
-    if (primes[i] === 1) {
+    if (primes[i]) {
       count++;
     }
   }
