@@ -1,5 +1,5 @@
 #
-# @lc app=leetcode.cn id=264 lang=python3
+# @lc app=leetcode.cn id=264 lang=python
 #
 # [264] 丑数 II
 #
@@ -44,23 +44,25 @@
 # 
 # 
 #
-
+import heapq
 # @lc code=start
-class Solution:
-    def nthUglyNumber(self, n: int) -> int:
-        p2 = 1
-        p3 = 1
-        p5 = 1
-        dp = [1]
-        for index in range(1, n):
-            cur_min = min(2 * dp[p2-1], 3 *dp[p3-1], 5 * dp[p5-1])
-            if cur_min == dp[p2-1] * 2:
-                p2 = p2+1
-            if cur_min == dp[p3-1] * 3:
-                p3 = p3+1
-            if cur_min == dp[p5-1] * 5:
-                p5 = p5+1
-            dp.append(cur_min)
-        return dp[n-1]
+class Solution(object):
+    def nthUglyNumber(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        cur = 1
+        seen = []
+        minHeap = [cur]
+        heapq.heappush(minHeap, 1)
+        factors = [2, 3, 5]
+        for i in range(n+1):
+            cur = heapq.heappop(minHeap)
+            for factor in factors:
+                temp = factor * cur
+                if temp not in seen:
+                    heapq.heappush(minHeap, temp)
+                    seen.append(temp)
+        return cur
 # @lc code=end
-

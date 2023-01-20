@@ -21,4 +21,11 @@
   "pomodoroClock.breakTime": 2,
   "pomodoroClock.longBreakTime": 6,
   "pomodoroClock.workTime": 15,
+  "editor.codeActionsOnSave": {
+  },
+  "explorer.fileNesting.patterns": {
+    "*.java": "$(capture).class",
+    "*.py": "$(capture).py, $(capture).*.py, $(capture)_*.py",
+    "*.js": "$(capture).js.map, $(capture).*.js, $(capture)_*.js",
+  },
 }
