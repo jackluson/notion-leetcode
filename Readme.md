@@ -1,18 +1,26 @@
 # Notion-Leetcode
 
-用Notion辅助刷Leetcode, 遵循[艾宾浩斯记忆曲线](https://zh.wikipedia.org/zh-cn/%E9%81%97%E5%BF%98%E6%9B%B2%E7%BA%BF#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80)规律进行复习，让你刷过的每一道题都牢记于心
+用 Notion 辅助刷 Leetcode, 遵循[艾宾浩斯记忆曲线](https://zh.wikipedia.org/zh-cn/%E9%81%97%E5%BF%98%E6%9B%B2%E7%BA%BF#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80)规律进行复习，让你刷过的每一道题都牢记于心
 
 Notion 模板如下图：
 ![template](screenshots/template.jpg)
 
-Notion模版链接地址: https://smart-icecream-3b3.notion.site/Leetcode-2e4a16eb5e9640e68e6b1053d8fae7a3
+Notion 模版链接地址: https://smart-icecream-3b3.notion.site/Leetcode-2e4a16eb5e9640e68e6b1053d8fae7a3
 
-## 在VSCode中刷题
+## 目录结构
 
-- 在vscode中实现刷题，安装Leetcode的VSCode插件即可(我在官方插件的基础上加了Reset的功能，让复习题目更加简单)--[LeetCode With Reset](https://marketplace.visualstudio.com/items?itemName=jackluson.leetcode-with-reset)
+```
+`-- solutions #题目答案
+    |-- docs
+    |-- javascript
+    `-- python3
+```
 
-- 刷题时间记录，如果需要记录刷一道题花了多少时间，可以利用这款vscode插件辅助--[Pomodoro Clock](https://marketplace.visualstudio.com/items?itemName=jackluson.pomodoro-clock)
+## 在 VSCode 中刷题
 
+- 在 vscode 中实现刷题，安装 Leetcode 的 VSCode 插件即可(我在官方插件的基础上加了 Reset 的功能，让复习题目更加简单)--[LeetCode With Reset](https://marketplace.visualstudio.com/items?itemName=jackluson.leetcode-with-reset)
+
+- 刷题时间记录，如果需要记录刷一道题花了多少时间，可以利用这款 vscode 插件辅助--[Pomodoro Clock](https://marketplace.visualstudio.com/items?itemName=jackluson.pomodoro-clock)
 
 ## 算法分类
 
@@ -38,12 +46,11 @@ Notion模版链接地址: https://smart-icecream-3b3.notion.site/Leetcode-2e4a16
 
 - [🧩**Other**](https://www.notion.so/Other-c6a95a1d97c74bf585ca927432ca3ce3)
 
-
 ## 题单
 
 - **[🔥 LeetCode 热题 HOT 100](https://leetcode.cn/problem-list/2cktkvj/)**
 - **[👨‍💻 LeetCode 精选 TOP 面试题](https://leetcode.cn/problem-list/2ckc81c/)**
-- ****[🤖腾讯](https://leetcode.cn/leetbook/detail/tencent/)****
+- **[🤖 腾讯](https://leetcode.cn/leetbook/detail/tencent/)**
 - **[🐧 腾讯精选练习 50 题](https://leetcode.cn/problem-list/ex0k24j/)**
 
 ## Reference
@@ -53,7 +60,7 @@ Notion模版链接地址: https://smart-icecream-3b3.notion.site/Leetcode-2e4a16
 - [论如何 4 个月高效刷满 500 题并形成长期记忆](https://leetcode.cn/circle/discuss/jq9Zke/)
 - [大家都是如何刷 LeetCode 的？](https://www.zhihu.com/question/280279208)
 
-
 ## TODO
-- Notion模板使用指北
-- 如何在VSCode中舒服的刷题，复习题目
+
+- Notion 模板使用指北
+- 如何在 VSCode 中舒服地刷题，复习题目
