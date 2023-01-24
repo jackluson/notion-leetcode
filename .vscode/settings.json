@@ -1,5 +1,5 @@
 {
-  "leetcode.defaultLanguage": "python3",
+  "leetcode.defaultLanguage": "golang",
   "leetcode.endpoint": "leetcode-cn",
   // "leetcode.defaultLanguage": "python3",
   "leetcode.showDescription": "Both",
@@ -14,6 +14,10 @@
     "python3": {
       "folder": "solutions/python3",
       "filename": "${id}.${kebab-case-name}.${ext}"
+    },
+    "golang": {
+      "folder": "solutions/golang",
+      "filename": "${id}.${kebab-case-name}.${ext}"
     }
   },
   "pomodoroClock.countdown": false,
@@ -21,8 +25,7 @@
   "pomodoroClock.breakTime": 2,
   "pomodoroClock.longBreakTime": 6,
   "pomodoroClock.workTime": 15,
-  "editor.codeActionsOnSave": {
-  },
+  "editor.codeActionsOnSave": {},
   "explorer.fileNesting.patterns": {
     "*.java": "$(capture).class",
     "*.py": "$(capture).py, $(capture).*.py, $(capture)_*.py",
