@@ -59,16 +59,16 @@ func majorityElement(nums []int) []int {
 	var count1 = 0
 	var count2 = 0
 	for i := 0; i < len(nums); i++ {
-		if count1 == 0 {
-			candidate1 = nums[i]
-			count1 = 1
-		} else if candidate1 == nums[i] {
+		if candidate1 == nums[i] {
 			count1++
+		} else if candidate2 == nums[i] {
+			count2++
 		} else if count2 == 0 {
 			candidate2 = nums[i]
 			count2 = 1
-		} else if candidate2 == nums[i] {
-			count2++
+		} else if count1 == 0 {
+			candidate1 = nums[i]
+			count1 = 1
 		} else {
 			count1--
 			count2--
@@ -84,7 +84,6 @@ func majorityElement(nums []int) []int {
 		}
 	}
 	var res = []int{}
-
 	if count1 > len(nums)/3 {
 		res = append(res, candidate1)
 	}
