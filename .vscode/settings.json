@@ -29,6 +29,7 @@
   "explorer.fileNesting.patterns": {
     "*.java": "$(capture).class",
     "*.py": "$(capture).py, $(capture).*.py, $(capture)_*.py",
+    "*.go": "$(capture).go, $(capture).*.go, $(capture)_*.go",
     "*.js": "$(capture).js.map, $(capture).*.js, $(capture)_*.js",
   },
 }

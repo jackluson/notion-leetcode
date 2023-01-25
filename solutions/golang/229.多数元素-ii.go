@@ -53,44 +53,42 @@
 package main
 
 // @lc code=start
-func majorityElement(nums []int) []int {
+func majorityElement(nums []int) (ans []int) {
 	var candidate1 int
 	var candidate2 int
-	var count1 = 0
-	var count2 = 0
+	vote, vote2 := 0, 0
 	for i := 0; i < len(nums); i++ {
 		if candidate1 == nums[i] {
-			count1++
+			vote++
 		} else if candidate2 == nums[i] {
-			count2++
-		} else if count2 == 0 {
+			vote2++
+		} else if vote2 == 0 {
 			candidate2 = nums[i]
-			count2 = 1
-		} else if count1 == 0 {
+			vote2 = 1
+		} else if vote == 0 {
 			candidate1 = nums[i]
-			count1 = 1
+			vote = 1
 		} else {
-			count1--
-			count2--
+			vote--
+			vote2--
 		}
 	}
-	count1 = 0
-	count2 = 0
-	for i := 0; i < len(nums); i++ {
-		if candidate1 == nums[i] {
+	count1, count2 := 0, 0
+	for _, num := range nums {
+		if candidate1 == num {
 			count1++
-		} else if candidate2 == nums[i] {
+		} else if candidate2 == num {
 			count2++
 		}
 	}
-	var res = []int{}
+	// var res = []int{}
 	if count1 > len(nums)/3 {
-		res = append(res, candidate1)
+		ans = append(ans, candidate1)
 	}
 	if count2 > len(nums)/3 {
-		res = append(res, candidate2)
+		ans = append(ans, candidate2)
 	}
-	return res
+	return
 }
 
 // @lc code=end
