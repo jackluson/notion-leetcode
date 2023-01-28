@@ -5,15 +5,16 @@
 Notion 模板如下图：
 ![template](screenshots/template.jpg)
 
-Notion 模版链接地址: https://smart-icecream-3b3.notion.site/Leetcode-2e4a16eb5e9640e68e6b1053d8fae7a3
+Notion 模版链接地址: https://learn-notion-api.notion.site/learn-notion-api/Leetcode-939ea8cc9e574bd283e1df4a5ec0c206
 
 ## 目录结构
 
 ```
-`-- solutions #题目答案
-    |-- docs
-    |-- javascript
-    `-- python3
+`-- solutions #题目参考答案
+    |-- docs # 题目笔记
+    |-- golang  # golang实现
+    |-- javascript # js实现
+    `-- python3 # python3实现
 ```
 
 ## 在 VSCode 中刷题
