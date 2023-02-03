@@ -72,20 +72,16 @@ func isHappy(n int) bool {
 	// 25 + 64 = 81 > 64 + 1 = 65 > 36 + 35 = 71
 	// 49 + 1 = 50 > 25 > 29 > 8
 	memoMap := make(map[int]bool)
-	memoMap[1] = true
 	next := n
-	_, isExist := memoMap[next]
-	for isExist == false {
+	for {
 		next = getNext(next)
-		_, isExist = memoMap[next]
+		_, isExist := memoMap[next]
 		if isExist == false {
 			memoMap[next] = true
+		} else {
+			return next == 1
 		}
 	}
-	if next == 1 {
-		return true
-	}
-	return false
 }
 
 // @lc code=end
