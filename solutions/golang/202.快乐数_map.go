@@ -58,21 +58,6 @@
 package main
 
 // @lc code=start
-func isHappy(n int) bool {
-	fast := n
-	slow := n
-	for {
-		fast = getNext(getNext(fast))
-		slow = getNext(slow)
-		if slow == fast {
-			return slow == 1
-		}
-		if slow == 1 || fast == 1 {
-			return true
-		}
-	}
-}
-
 func getNext(k int) int {
 	sum := 0
 	for k > 0 {
@@ -81,6 +66,26 @@ func getNext(k int) int {
 		sum += mod * mod
 	}
 	return sum
+}
+func isHappy(n int) bool {
+	// 2 > 4 > 16 > 1 + 36 = 37 > 9 + 49 = 58
+	// 25 + 64 = 81 > 64 + 1 = 65 > 36 + 35 = 71
+	// 49 + 1 = 50 > 25 > 29 > 8
+	memoMap := make(map[int]bool)
+	memoMap[1] = true
+	next := n
+	_, isExist := memoMap[next]
+	for isExist == false {
+		next = getNext(next)
+		_, isExist = memoMap[next]
+		if isExist == false {
+			memoMap[next] = true
+		}
+	}
+	if next == 1 {
+		return true
+	}
+	return false
 }
 
 // @lc code=end
