@@ -64,11 +64,9 @@ func isHappy(n int) bool {
 	for {
 		fast = getNext(getNext(fast))
 		slow = getNext(slow)
-		if slow == fast {
-			return slow == 1
-		}
-		if slow == 1 || fast == 1 {
-			return true
+
+		if slow == fast || slow == 1 || fast == 1 {
+			return slow == 1 || fast == 1
 		}
 	}
 }
