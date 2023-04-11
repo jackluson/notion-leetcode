@@ -67,44 +67,35 @@
  */
 package main
 
+// import "fmt"
+
+// import "fmt"
+
 // @lc code=start
-func nextPermutation(nums []int) {
-	lgt := len(nums)
-	if lgt <= 1 {
-		return
+func nextPermutation(nums []int) []int {
+	lastIndex := len(nums) - 1
+	for lastIndex > 0 && nums[lastIndex] <= nums[lastIndex-1] {
+		lastIndex--
 	}
-	i, j, k := lgt-2, lgt-1, lgt-1
-	for i >= 0 && nums[i] >= nums[j] {
-		i--
-		j--
-	}
-	if i >= 0 {
-		for nums[i] >= nums[k] {
-			k--
+	// fmt.Println(lastIndex)
+	end := len(nums) - 1
+	start := lastIndex
+	if lastIndex > 0 {
+		targetIndex := lastIndex - 1
+		exchangeIndex := lastIndex
+		for exchangeIndex < len(nums)-1 && nums[exchangeIndex+1] > nums[targetIndex] {
+			exchangeIndex++
 		}
-		nums[i], nums[k] = nums[k], nums[i]
+		nums[targetIndex], nums[exchangeIndex] = nums[exchangeIndex], nums[targetIndex]
 	}
-	// for j := i + 1; j < len(nums); j++ {
-	// 	for k := len(nums) - 1; k >= j+1; k-- {
-	// 		if nums[k] < nums[k-1] {
-	// 			nums[k], nums[k-1] = nums[k-1], nums[k]
-	// 		}
-	// 	}
-	// }
-	for i, j := j, lgt-1; i < j; {
-		nums[i], nums[j] = nums[j], nums[i]
-		i = i + 1
-		j = j - 1
+	// fmt.Println(start, end)
+
+	for start < end {
+		nums[start], nums[end] = nums[end], nums[start]
+		start++
+		end--
 	}
+	return nums
 }
 
-// func main() {
-// 	arr := []int{1, 1}
-// 	fmt.Println(arr)
-// 	nextPermutation(arr)
-// 	fmt.Println(arr)
-// }
-
 // @lc code=end
-// [4,5,8,7,1] --> [4,7,8,5,1] --> [4,7,1,5,8]
-// [1,3,2] --> [2,3,1] --> [2,1,3]
