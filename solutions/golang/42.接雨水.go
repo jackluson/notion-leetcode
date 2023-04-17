@@ -50,30 +50,51 @@ package main
 // @lc code=start
 func trap(height []int) int {
 	lenght := len(height)
-	amount := 0
-	if lenght <= 1 {
-		return amount
+	if lenght <= 2 {
+		return 0
 	}
-	lMax := height[0]
-	rMax := height[lenght-1]
-	left := 0
-	right := lenght - 1
-	for left < right {
-		if height[left] > lMax {
-			lMax = height[left]
-		}
-		if height[right] > rMax {
-			rMax = height[right]
-		}
-		if lMax < rMax {
-			amount += lMax - height[left]
-			left++
+	maxsLeft := make([]int, lenght)
+	for index, num := range height {
+		if index == 0 {
+			maxsLeft[index] = num
 		} else {
-			amount += rMax - height[right]
-			right--
+			if num > maxsLeft[index-1] {
+				maxsLeft[index] = num
+			} else {
+				maxsLeft[index] = maxsLeft[index-1]
+			}
 		}
 	}
-	return amount
+	index := lenght - 1
+	maxsRight := make([]int, lenght)
+	for index >= 0 {
+		if index == (lenght - 1) {
+			maxsRight[index] = height[index]
+		} else {
+			if height[index] > maxsRight[index+1] {
+				maxsRight[index] = height[index]
+			} else {
+				maxsRight[index] = maxsRight[index+1]
+			}
+		}
+		index -= 1
+	}
+	sum := 0
+	for index, num := range height {
+		if index > 0 {
+			max := maxsLeft[index]
+			if max > maxsRight[index] {
+				max = maxsRight[index]
+			}
+			sum = sum + (max - num)
+		}
+	}
+	return sum
 }
+
+// func main() {
+// 	height := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
+// 	trap(height)
+// }
 
 // @lc code=end
