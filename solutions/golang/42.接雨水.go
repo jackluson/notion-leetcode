@@ -53,40 +53,26 @@ func trap(height []int) int {
 	if lenght <= 2 {
 		return 0
 	}
-	maxsLeft := make([]int, lenght)
-	for index, num := range height {
-		if index == 0 {
-			maxsLeft[index] = num
-		} else {
-			if num > maxsLeft[index-1] {
-				maxsLeft[index] = num
-			} else {
-				maxsLeft[index] = maxsLeft[index-1]
-			}
-		}
-	}
-	index := lenght - 1
-	maxsRight := make([]int, lenght)
-	for index >= 0 {
-		if index == (lenght - 1) {
-			maxsRight[index] = height[index]
-		} else {
-			if height[index] > maxsRight[index+1] {
-				maxsRight[index] = height[index]
-			} else {
-				maxsRight[index] = maxsRight[index+1]
-			}
-		}
-		index -= 1
-	}
+	lMax := height[0]
+	rMax := height[lenght-1]
+	left := 0
+	right := lenght - 1
 	sum := 0
-	for index, num := range height {
-		if index > 0 {
-			max := maxsLeft[index]
-			if max > maxsRight[index] {
-				max = maxsRight[index]
+	for left <= right {
+		if lMax > rMax {
+			if height[right] > rMax {
+				rMax = height[right]
+			} else {
+				sum = sum + rMax - height[right]
 			}
-			sum = sum + (max - num)
+			right--
+		} else {
+			if height[left] > lMax {
+				lMax = height[left]
+			} else {
+				sum = sum + lMax - height[left]
+			}
+			left++
 		}
 	}
 	return sum
