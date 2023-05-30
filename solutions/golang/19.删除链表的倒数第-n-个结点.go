@@ -66,23 +66,36 @@
 package main
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	slow, fast := head, head
-	l := 1
-	for fast.Next != nil {
+	dummyHead := &ListNode{-1, head}
+	slow, fast := dummyHead, dummyHead
+	for n >= 0 {
+		n -= 1
 		fast = fast.Next
-		l += 1
 	}
-	i := l - n - 1
-	for i > 0 {
+	// l := 1
+	for fast != nil {
+		fast = fast.Next
 		slow = slow.Next
-		i -= 1
+		// l += 1
 	}
-	if i < 0 {
-		return slow.Next
+	slow.Next = slow.Next.Next
+	if slow == dummyHead {
+		return dummyHead.Next
 	} else {
-		slow.Next = slow.Next.Next
+		return head
 	}
-	return head
+	// i := l - n - 1
+	// for i > 0 {
+	// 	slow = slow.Next
+	// 	i -= 1
+	// }
+	// if i < 0 {
+	// 	// 第一个节点的情况
+	// 	return slow.Next
+	// } else {
+	// 	slow.Next = slow.Next.Next
+	// }
+	// return head
 }
 
 // @lc code=end
