@@ -32,4 +32,18 @@
     "*.go": "$(capture).go, $(capture).*.go, $(capture)_*.go",
     "*.js": "$(capture).js.map, $(capture).*.js, $(capture)_*.js",
   },
+  "leetcode-problem-rating.filePath": {
+    "default": {
+      "folder": "./javascript",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    },
+    "python3": {
+      "folder": "./python3",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    },
+    "golang": {
+      "folder": "./golang",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    }
+  }
 }
